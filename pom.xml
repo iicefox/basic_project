@@ -39,6 +39,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- 解决读取application.properties配置时，出现如下错误：spring boot configuration annotation processor not configured -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- 热部署工具 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,17 +66,11 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- swagger ui -->
+        <!-- JApiDocs -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
+            <groupId>io.github.yedaxia</groupId>
+            <artifactId>japidocs</artifactId>
+            <version>1.4.3</version>
         </dependency>
 
         <!-- mybatis_plus -->

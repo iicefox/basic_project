@@ -4,7 +4,7 @@
 
 ### 基础项目该包含哪些东西。
 
-- Swagger在线接口文档。
+- JApiDocs接口文档。
 - CodeGenerator 代码生成器。
 - 统一返回。
 - 通用的分页对象。
@@ -21,72 +21,12 @@
 
 -----
 
-### Swagger
+### JApiDocs
 
-&emsp;&emsp;写接口文档通常是一件比较头疼的事情，然而swagger就用是用来帮我们解决这个问题的。可以在线生成接口文档，并且可以在页面上进行测试。
+&emsp;&emsp;相比swagger使用方法更加简单。界面简洁。支持导出html,即可本地预览，也可部署在http服务器上。国内官网方便查阅，有中文文档
 
-![](https://images.gitee.com/uploads/images/2020/0307/221947_26123776_1740559.png)
-
-&emsp;&emsp;可以非常清楚的显示，请求数据已经响应数据。当然这一切都需要在代码中进行配置。
-
-![](https://images.gitee.com/uploads/images/2020/0307/221947_6c07aebe_1740559.png)
-
-**注意的点：接口文档只能在测试/开发环境开启，其他环境请关闭。**
-
-#### 常用的Swagger注解
-
-- `@Api用于Controller`
-- `@ApiOperation用于Controller内的方法。`
-- `@ApiResponses用于标识接口返回数据的类型。` 
-- `@ApiModel用于标识类的名称`
-- `@ApiModelProperty用于标识属性的名称`
-
-#### 案例
-
-```java
-@RestController
-@Api(tags = "用户")
-@AllArgsConstructor
-@RequestMapping("/user")
-public class UserController {
-
-    private IUserService userService;
-
-    /**
-     * 获取用户列表
-     * @param listUserForm 表单数据
-     * @return 用户列表
-     */
-    @ApiOperation("获取用户列表")
-    @GetMapping("/listUser")
-    @ApiResponses(
-            @ApiResponse(code = 200, message = "操作成功", response = UserVo.class)
-    )
-    public ResultVo listUser(@Validated ListUserForm listUserForm){
-        return ResultVoUtil.success(userService.listUser(listUserForm));
-    }
-    
-}
-```
-
-```java
-@Data
-@ApiModel("获取用户列表需要的表单数据")
-@EqualsAndHashCode(callSuper = false)
-public class ListUserForm extends PageForm<ListUserForm> {
-
-    /**
-     * 用户状态
-     */
-    @ApiModelProperty("用户状态")
-    @NotEmpty(message = "用户状态不能为空")
-    @Range(min =  -1 , max = 1 , message = "用户状态有误")
-    private String status;
-
-}
-```
-
-对应的swagger的配置可以查看[基础项目](https://gitee.com/huangxunhui/basic_project.git)内的[`SwaggerConfiguration.java`](https://gitee.com/huangxunhui/basic_project/blob/master/src/main/java/com/hxh/basic/project/config/swagger/SwaggerConfiguration.java).
+官网地址:
+>  https://japidocs.agilestudio.cn/#/zh-cn/
 
 ### CodeGenerator代码生成器。
 
