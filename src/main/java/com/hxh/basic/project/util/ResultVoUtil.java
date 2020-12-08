@@ -1,4 +1,4 @@
-package com.hxh.basic.project.utils;
+package com.hxh.basic.project.util;
 
 
 import com.hxh.basic.project.enums.ResultEnum;

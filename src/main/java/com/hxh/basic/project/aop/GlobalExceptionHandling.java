@@ -1,8 +1,8 @@
 package com.hxh.basic.project.aop;
 
 import com.hxh.basic.project.enums.ResultEnum;
-import com.hxh.basic.project.exception.CustomException;
-import com.hxh.basic.project.utils.ResultVoUtil;
+import com.hxh.basic.project.exception.CustomRuntimeException;
+import com.hxh.basic.project.util.ResultVoUtil;
 import com.hxh.basic.project.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -32,8 +32,8 @@ public class GlobalExceptionHandling {
     /**
      * 自定义异常
      */
-    @ExceptionHandler(value = CustomException.class)
-    public ResultVo processException(CustomException e) {
+    @ExceptionHandler(value = CustomRuntimeException.class)
+    public ResultVo processException(CustomRuntimeException e) {
         log.error("位置:{} -> 错误信息:{}", e.getMethod() ,e.getLocalizedMessage());
         return ResultVoUtil.error(Objects.requireNonNull(ResultEnum.getByCode(e.getCode())));
     }

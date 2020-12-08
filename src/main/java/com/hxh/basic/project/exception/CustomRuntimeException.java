@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class CustomException extends Exception {
+public class CustomRuntimeException extends RuntimeException {
 
     /**
      * 状态码
@@ -32,7 +32,7 @@ public class CustomException extends Exception {
      * @param resultEnum 返回枚举对象
      * @param method     方法
      */
-    public CustomException(ResultEnum resultEnum, String method) {
+    public CustomRuntimeException(ResultEnum resultEnum, String method) {
         super(resultEnum.getMsg());
         this.code = resultEnum.getCode();
         this.method = method;
@@ -43,19 +43,9 @@ public class CustomException extends Exception {
      * @param message 错误信息
      * @param method  方法
      */
-    public CustomException(Integer code, String message, String method) {
+    public CustomRuntimeException(Integer code, String message, String method) {
         super(message);
         this.code = code;
-        this.method = method;
-    }
-
-    /**
-     * @param message 错误信息
-     * @param method  方法
-     */
-    public CustomException(String message, String method) {
-        super(message);
-        this.code = null;
         this.method = method;
     }
 

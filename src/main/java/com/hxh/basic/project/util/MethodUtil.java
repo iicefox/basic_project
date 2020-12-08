@@ -1,4 +1,4 @@
-package com.hxh.basic.project.utils;
+package com.hxh.basic.project.util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +19,7 @@ public class MethodUtil {
 
     public static String getLineInfo() {
         StackTraceElement ste = new Throwable().getStackTrace()[1];
-        return ste.getFileName() + " -> " + ste.getLineNumber() + "行";
+        return ste.getMethodName() + " -> " + ste.getLineNumber() + "行";
     }
 
 }

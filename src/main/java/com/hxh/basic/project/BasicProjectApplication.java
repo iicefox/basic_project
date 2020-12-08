@@ -1,5 +1,7 @@
 package com.hxh.basic.project;
 
+import com.hxh.basic.project.exception.CustomException;
+import com.hxh.basic.project.util.resource.YmlUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
