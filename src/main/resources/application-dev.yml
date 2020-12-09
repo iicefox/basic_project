@@ -1,12 +1,12 @@
 spring:
   # 配置数据库连接池
   datasource:
-    url: jdbc:mysql://10.0.0.53:3306/basic_project?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
-    username: root
-    password: 1470634109
+    url: jdbc:mysql://192.168.30.43:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+    username: hive
+    password: hive
   ### 配置Redis
   redis:
-    database: 0
+    database: 15
     host: 10.0.0.32
     port: 6379
     password: 1470634109

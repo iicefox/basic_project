@@ -2,8 +2,6 @@ package com.hxh.basic.project.exception;
 
 
 import com.hxh.basic.project.enums.ResultEnum;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author huangxunhui
@@ -11,8 +9,6 @@ import lombok.EqualsAndHashCode;
  * Utils: Intellij Idea
  * Description: 自定义异常
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class CustomException extends Exception {
 
     /**
@@ -57,6 +53,18 @@ public class CustomException extends Exception {
         super(message);
         this.code = null;
         this.method = method;
+    }
+
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public String getMethod() {
+        return this.method;
+    }
+
+    public String toString() {
+        return "CustomException(code=" + this.getCode() + ", method=" + this.getMethod() + ")";
     }
 
 }

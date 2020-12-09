@@ -1,15 +1,12 @@
 package com.hxh.basic.project.enums;
 
 
-import lombok.Getter;
-
 /**
  * @author huangxunhui
  * Date: Created in 18/8/29 上午9:54
  * Utils: Intellij Idea
  * Description: 返回状态枚举类
  */
-@Getter
 public enum ResultEnum {
 
     /**
@@ -81,5 +78,12 @@ public enum ResultEnum {
         return null;
     }
 
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
 }
 

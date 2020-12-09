@@ -4,7 +4,7 @@ import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.exception.CustomRuntimeException;
 import com.hxh.basic.project.util.ResultVoUtil;
 import com.hxh.basic.project.vo.ResultVo;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -25,9 +25,10 @@ import java.util.Objects;
  * Utils: Intellij Idea
  * Description: 全局异常处理
  */
-@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandling {
+
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandling.class);
 
     /**
      * 自定义异常

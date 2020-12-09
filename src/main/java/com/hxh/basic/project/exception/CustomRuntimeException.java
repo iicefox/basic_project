@@ -2,8 +2,6 @@ package com.hxh.basic.project.exception;
 
 
 import com.hxh.basic.project.enums.ResultEnum;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author huangxunhui
@@ -11,8 +9,6 @@ import lombok.EqualsAndHashCode;
  * Utils: Intellij Idea
  * Description: 自定义异常
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class CustomRuntimeException extends RuntimeException {
 
     /**
@@ -47,6 +43,18 @@ public class CustomRuntimeException extends RuntimeException {
         super(message);
         this.code = code;
         this.method = method;
+    }
+
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public String getMethod() {
+        return this.method;
+    }
+
+    public String toString() {
+        return "CustomRuntimeException(code=" + this.getCode() + ", method=" + this.getMethod() + ")";
     }
 
 }

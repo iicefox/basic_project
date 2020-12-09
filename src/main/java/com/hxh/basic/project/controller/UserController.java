@@ -7,7 +7,7 @@ import com.hxh.basic.project.form.user.ListUserForm;
 import com.hxh.basic.project.service.IUserService;
 import com.hxh.basic.project.util.ResultVoUtil;
 import com.hxh.basic.project.vo.ResultVo;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.*;
  * Description: 用户前端控制器
  */
 @RestController
-@AllArgsConstructor
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
     private IUserService userService;
 
     /**

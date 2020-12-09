@@ -12,7 +12,7 @@ import com.hxh.basic.project.service.IUserService;
 import com.hxh.basic.project.util.MethodUtil;
 import com.hxh.basic.project.vo.PageVo;
 import com.hxh.basic.project.vo.UserVo;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,9 +22,9 @@ import org.springframework.stereotype.Service;
  * Description: 用户服务实现类
  */
 @Service
-@AllArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
+    @Autowired
     private UserMapper userMapper;
 
     /**

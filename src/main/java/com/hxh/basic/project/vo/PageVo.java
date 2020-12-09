@@ -1,7 +1,6 @@
 package com.hxh.basic.project.vo;
 
 import com.hxh.basic.project.form.PageForm;
-import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
  * Utils: Intellij Idea
  * Description: 分页视图对象
  */
-@Data
 public class PageVo<T> {
     /**
      * 分页数据
@@ -38,6 +36,9 @@ public class PageVo<T> {
      */
     private Integer size;
 
+    public PageVo() {
+    }
+
     /**
      * 设置当前页和每页显示的数量
      * @param pageForm 分页表单
@@ -55,5 +56,45 @@ public class PageVo<T> {
     public void setTotal(Integer total) {
         this.total = total;
         this.setPages(this.total % this.size > 0 ? this.total / this.size + 1 : this.total / this.size);
+    }
+
+    public List<T> getRecords() {
+        return this.records;
+    }
+
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    public Integer getPages() {
+        return this.pages;
+    }
+
+    public Integer getCurrent() {
+        return this.current;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setRecords(List<T> records) {
+        this.records = records;
+    }
+
+    public void setPages(Integer pages) {
+        this.pages = pages;
+    }
+
+    public void setCurrent(Integer current) {
+        this.current = current;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public String toString() {
+        return "PageVo(records=" + this.getRecords() + ", total=" + this.getTotal() + ", pages=" + this.getPages() + ", current=" + this.getCurrent() + ", size=" + this.getSize() + ")";
     }
 }

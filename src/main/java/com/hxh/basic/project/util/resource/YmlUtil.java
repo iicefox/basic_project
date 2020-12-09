@@ -2,11 +2,9 @@ package com.hxh.basic.project.util.resource;
 
 import cn.hutool.core.io.FileTypeUtil;
 import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.file.FileWriter;
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,7 +31,7 @@ public class YmlUtil {
     /**
      * yml转Object
      *
-     * @param resource yml格式字符串 或 yml文件路径(可以是绝对路径，也可以是classpath中的资源或者文件)
+     * @param resource yml格式字符串内容
      * @return
      * @throws CustomException
      */
