@@ -2,7 +2,6 @@ package com.hxh.basic.project.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,7 +14,6 @@ import java.util.Date;
  * @author huangxunhui
  * @since 2020-03-06
  */
-@Accessors(chain = true)
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

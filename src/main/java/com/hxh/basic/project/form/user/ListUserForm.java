@@ -1,8 +1,6 @@
 package com.hxh.basic.project.form.user;
 
 import com.hxh.basic.project.form.PageForm;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotEmpty;
@@ -13,8 +11,6 @@ import javax.validation.constraints.NotEmpty;
  * Utils: Intellij Idea
  * Description: 获取用户列表需要的表单数据
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class ListUserForm extends PageForm<ListUserForm> {
 
     /**
@@ -24,4 +20,11 @@ public class ListUserForm extends PageForm<ListUserForm> {
     @Range(min =  -1 , max = 1 , message = "用户状态有误")
     private String status;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

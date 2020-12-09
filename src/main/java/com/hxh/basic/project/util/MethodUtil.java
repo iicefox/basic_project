@@ -1,6 +1,7 @@
 package com.hxh.basic.project.util;
 
-import lombok.extern.slf4j.Slf4j;
+import com.hxh.basic.project.aop.GlobalExceptionHandling;
+import org.slf4j.Logger;
 
 /**
  * @author 黄训辉
@@ -8,8 +9,9 @@ import lombok.extern.slf4j.Slf4j;
  * Utils: Intellij Idea
  * Description: 获取当前方法和行号
  */
-@Slf4j
 public class MethodUtil {
+
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MethodUtil.class);
 
     /**
      * 私有化工具类 防止被实例化
