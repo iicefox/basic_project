@@ -103,16 +103,22 @@
             <version>5.5.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.27</version>
-        </dependency>
+        <!-- jackson-databind 传递依赖了 jackson-core 和 jackson-annotations;
+             jackson-dataformat-yaml 传递依赖了jackson-databind
+         -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>2.9.9</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.9.9</version>
+        </dependency>
+
+
         <!-- 工具包 end -->
 
     </dependencies>

@@ -488,7 +488,7 @@ public class GlobalExceptionHandling {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
     public ResultVo exception(Exception e) {
-        e.printStackTrace();
+        log.error(e.getMessage(), e);
         return ResultVoUtil.error(ResultEnum.UNKNOWN_EXCEPTION);
     }
 }
