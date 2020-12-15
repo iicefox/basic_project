@@ -8,7 +8,6 @@ import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.hxh.basic.project.exception.CustomException;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,7 +67,6 @@ public class YamlUtil {
      * @param targetType 目标类型
      * @param <T>
      * @return 指定类型对象
-     * @throws CustomException
      * @throws IOException
      */
     public static <T> T readToObject(File resource, Class<T> targetType) throws IOException {
@@ -92,10 +90,9 @@ public class YamlUtil {
      *
      * @param resource yaml文件
      * @return
-     * @throws CustomException
      * @throws IOException
      */
-    public static Object readToObject(File resource) throws IOException, CustomException {
+    public static Object readToObject(File resource) throws IOException {
         return readToObject(resource, Object.class);
     }
 
@@ -106,10 +103,9 @@ public class YamlUtil {
      * @param targetType 目标类型
      * @param <T>
      * @return 指定类型对象
-     * @throws CustomException
      * @throws IOException
      */
-    public static <T> T readToObject(String resource, Class<T> targetType) throws IOException, CustomException {
+    public static <T> T readToObject(String resource, Class<T> targetType) throws IOException {
         if (StrUtil.isBlank(resource)) {
             throw new UtilException("File not found");
         }
@@ -121,10 +117,9 @@ public class YamlUtil {
      *
      * @param resource yaml文件
      * @return
-     * @throws CustomException
      * @throws IOException
      */
-    public static Object readToObject(String resource) throws IOException, CustomException {
+    public static Object readToObject(String resource) throws IOException {
         return readToObject(resource, Object.class);
     }
 
