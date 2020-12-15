@@ -13,10 +13,18 @@ import com.hxh.basic.project.exception.CustomException;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * yaml工具类:转换yaml
+ *
+ * @author yomu
+ * @version 1.0
+ * @create 2020/12/15 13:21
+ */
 public class YamlUtil {
-    private static final String yaml_EXT_REG = "^ya?ml$";
-    private static final String START_LINE = "---\n";
-    public static final String RUBY_HASH = "!ruby/hash";
+    /**
+     * yaml文件后缀正则表达式
+     */
+    private static final String YAML_EXT_REG = "^ya?ml$";
 
     private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
@@ -38,12 +46,6 @@ public class YamlUtil {
         }
         if (StrUtil.isBlank(content)) {
             throw new UtilException("No content to map due to content is blank");
-        }
-        if (content.startsWith(START_LINE)) {
-            content = content.replace(START_LINE, "");
-        }
-        if (content.contains(RUBY_HASH)) {
-            content = content.replaceAll("(?i)!ruby/.*\n", "\n");
         }
         return mapper.readValue(content, targetType);
     }
@@ -69,14 +71,14 @@ public class YamlUtil {
      * @throws CustomException
      * @throws IOException
      */
-    public static <T> T readToObject(File resource, Class<T> targetType) throws CustomException, IOException {
+    public static <T> T readToObject(File resource, Class<T> targetType) throws IOException {
         if (targetType == null) {
             throw new UtilException("TargetType could not be null");
         }
         if (!FileUtil.isFile(resource)) {
             throw new UtilException("File not found");
         }
-        if (!Validator.isMatchRegex(yaml_EXT_REG, FileTypeUtil.getType(resource))) {
+        if (!Validator.isMatchRegex(YAML_EXT_REG, FileTypeUtil.getType(resource))) {
             throw new UtilException("File type is not yaml");
         }
         if (FileUtil.isEmpty(resource)) {
@@ -126,19 +128,34 @@ public class YamlUtil {
         return readToObject(resource, Object.class);
     }
 
-    public static String writeyamlAsString(Object obj) throws JsonProcessingException {
-        if (null == obj) {
-            return null;
-        }
+    /**
+     * 对象转Yaml字符串
+     * @param obj
+     * @return
+     * @throws JsonProcessingException
+     */
+    public static String writeYamlAsString(Object obj) throws JsonProcessingException {
         return mapper.writeValueAsString(obj);
     }
 
-    public static void writeyaml(Object obj, File file) throws IOException {
+    /**
+     * 对象转Yaml文件
+     * @param obj
+     * @param file Yaml文件
+     * @throws IOException
+     */
+    public static void writeYaml(Object obj, File file) throws IOException {
         mapper.writeValue(file, obj);
     }
 
-    public static void writeyaml(Object obj, String file) throws IOException {
-        writeyaml(obj, FileUtil.newFile(file));
+    /**
+     * 对象转Yaml文件
+     * @param obj
+     * @param file Yaml文件
+     * @throws IOException
+     */
+    public static void writeYaml(Object obj, String file) throws IOException {
+        writeYaml(obj, FileUtil.newFile(file));
     }
 
 }
