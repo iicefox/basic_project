@@ -9,7 +9,7 @@ package com.hxh.basic.project.form;
 public abstract class BaseForm<T> {
 
     /**
-     * 获取实例
+     * 构建实例
      * @return 返回实体类
      */
     public abstract T buildEntity();

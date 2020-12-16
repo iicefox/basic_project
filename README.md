@@ -41,26 +41,21 @@
 将所有的接口的响应数据的格式进行统一。
 
 ```java
-@Data
-@ApiModel("固定返回格式")
 public class ResultVo {
 
     /**
      * 错误码
      */
-    @ApiModelProperty("错误码")
     private Integer code;
 
     /**
      * 提示信息
      */
-    @ApiModelProperty("提示信息")
     private String message;
 
     /**
      * 具体的内容
      */
-    @ApiModelProperty("响应数据")
     private Object data;
 
 }
@@ -118,8 +113,6 @@ public boolean addUser(AddUserForm userForm) {
 使用BaseForm进行重构 AddUserForm 继承 BaseForm并重写buildEntity
 
 ```java
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class AddUserForm extends BaseForm<User> {
 
     /**
@@ -178,21 +171,17 @@ public boolean addUser(AddUserForm userForm) {
 #### PageForm
 
 ```java
-@Data
-@ApiModel(value = "分页数据", description = "分页需要的表单数据")
 public class PageForm<T extends PageForm<?>>{
 
     /**
      * 页码
      */
-    @ApiModelProperty(value = "页码 从第一页开始 1")
     @Min(value = 1, message = "页码输入有误")
     private Integer current;
 
     /**
      * 每页显示的数量
      */
-    @ApiModelProperty(value = "每页显示的数量 范围在1~100")
     @Range(min = 1, max = 100, message = "每页显示的数量输入有误")
     private Integer size;
 
@@ -200,7 +189,6 @@ public class PageForm<T extends PageForm<?>>{
      * 计算当前页 ,方便mysql 进行分页查询
      * @return 返回 pageForm
      */
-    @ApiModelProperty(hidden = true)
     public T calcCurrent(){
         current = (current - 1 ) * size;
         return (T) this;
@@ -211,35 +199,29 @@ public class PageForm<T extends PageForm<?>>{
 #### PageVo
 
 ```java
-@Data
 public class PageVo<T> {
     /**
      * 分页数据
      */
-    @ApiModelProperty(value = "分页数据")
     private List<T> records;
     /**
      * 总条数
      */
-    @ApiModelProperty(value = "总条数")
     private Integer total;
 
     /**
      * 总页数
      */
-    @ApiModelProperty(value = "总页数")
     private Integer pages;
 
     /**
      * 当前页
      */
-    @ApiModelProperty(value = "当前页")
     private Integer current;
 
     /**
      * 查询数量
      */
-    @ApiModelProperty(value = "查询数量")
     private Integer size;
 
     /**
@@ -247,7 +229,6 @@ public class PageVo<T> {
      * @param pageForm 分页表单
      * @return 返回分页信息
      */
-    @ApiModelProperty(hidden = true)
     public PageVo<T> setCurrentAndSize(PageForm<?> pageForm){
         BeanUtils.copyProperties(pageForm,this);
         return this;
@@ -257,7 +238,6 @@ public class PageVo<T> {
      * 设置总记录数
      * @param total 总记录数
      */
-    @ApiModelProperty(hidden = true)
     public void setTotal(Integer total) {
         this.total = total;
         this.setPages(this.total % this.size > 0 ? this.total / this.size + 1 : this.total / this.size);
@@ -270,15 +250,11 @@ public class PageVo<T> {
 ##### ListUserForm
 
 ```java
-@Data
-@ApiModel("获取用户列表需要的表单数据")
-@EqualsAndHashCode(callSuper = false)
 public class ListUserForm extends PageForm<ListUserForm> {
 
     /**
      * 用户状态
      */
-    @ApiModelProperty("用户状态")
     @NotEmpty(message = "用户状态不能为空")
     @Range(min =  -1 , max = 1 , message = "用户状态有误")
     private String status;
@@ -320,7 +296,6 @@ private Integer countUser(String status){
  * @param listUserForm 表单数据
  * @return 用户列表
  */
-@ApiOperation("获取用户列表")
 @GetMapping("/listUser")
 @ApiResponses(
         @ApiResponse(code = 200, message = "操作成功", response = UserVo.class)
@@ -360,8 +335,6 @@ public ResultVo listUser(@Validated ListUserForm listUserForm){
 #### 自定义异常 
 
 ```java
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class CustomException extends RuntimeException {
 
     /**
@@ -406,7 +379,6 @@ public class CustomException extends RuntimeException {
 根据业务进行添加。
 
 ```java
-@Getter
 public enum ResultEnum {
 
     /**
@@ -467,7 +439,6 @@ public enum ResultEnum {
 全局异常拦截是使用`@ControllerAdvice`进行实现，常用的异常拦截配置可以查看 [GlobalExceptionHandling](https://gitee.com/huangxunhui/basic_project/blob/master/src/main/java/com/hxh/basic/project/aop/GlobalExceptionHandling.java)。
 
 ```java
-@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandling {
 
@@ -503,7 +474,6 @@ public class GlobalExceptionHandling {
  * @param id 用户编号
  * @return 成功或者失败
  */
-@ApiOperation("删除用户")
 @DeleteMapping("/deleteUser/{id}")
 public ResultVo deleteUser(@PathVariable("id") String id){
     userService.deleteUser(id);
