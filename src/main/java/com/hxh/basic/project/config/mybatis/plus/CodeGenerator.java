@@ -22,7 +22,7 @@ public class CodeGenerator {
     /**
      * 数据库链接地址
      */
-    private static final String URL = "jdbc:mysql://10.0.0.53:3306/basic_project?useUnicode=true&useSSL=false&characterEncoding=utf8";
+    private static final String URL = "jdbc:mysql://192.168.30.43:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false";
 
     /**
      * 驱动
@@ -32,17 +32,17 @@ public class CodeGenerator {
     /**
      * 用户名
      */
-    private static final String USERNAME = "root";
+    private static final String USERNAME = "hive";
 
     /**
      * 密码
      */
-    private static final String PASSWORD = "1470634109";
+    private static final String PASSWORD = "hive";
 
     /**
      * 作者
      */
-    private static final String AUTHOR = "huangxunhui";
+    private static final String AUTHOR = "yomu";
 
     /**
      * 父包名
