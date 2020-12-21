@@ -17,6 +17,7 @@ import java.util.List;
  * Utils: Intellij Idea
  * Description: 代码生成器
  */
+@SuppressWarnings("AlibabaAvoidCommentBehindStatement")
 public class CodeGenerator {
 
     /**
@@ -136,6 +137,7 @@ public class CodeGenerator {
         };
 
         // 如果模板引擎是 freemarker
+        @SuppressWarnings("java:S1075")
         final String templatePath = "/templates/mapper.xml.ftl";
 
         // 自定义输出配置

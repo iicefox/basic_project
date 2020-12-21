@@ -17,7 +17,7 @@ import java.util.Date;
  * Utils: Intellij Idea
  * Description: 添加用户需要的表单数据
  */
-public class AddUserForm extends BaseForm<User> {
+public class AddUserForm implements BaseForm<User> {
 
     /**
      * 昵称

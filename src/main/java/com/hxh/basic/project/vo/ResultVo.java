@@ -23,9 +23,6 @@ public class ResultVo {
      */
     private Object data;
 
-    public ResultVo() {
-    }
-
     public Integer getCode() {
         return this.code;
     }
@@ -50,6 +47,7 @@ public class ResultVo {
         this.data = data;
     }
 
+    @Override
     public String toString() {
         return "ResultVo(code=" + this.getCode() + ", message=" + this.getMessage() + ", data=" + this.getData() + ")";
     }

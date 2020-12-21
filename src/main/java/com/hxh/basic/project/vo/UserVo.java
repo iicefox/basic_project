@@ -30,9 +30,6 @@ public class UserVo {
      */
     private LocalDateTime birthday;
 
-    public UserVo() {
-    }
-
     public Integer getId() {
         return this.id;
     }
@@ -65,6 +62,7 @@ public class UserVo {
         this.birthday = birthday;
     }
 
+    @Override
     public String toString() {
         return "UserVo(id=" + this.getId() + ", nickname=" + this.getNickname() + ", username=" + this.getUsername() + ", birthday=" + this.getBirthday() + ")";
     }

@@ -53,6 +53,7 @@ public class CustomRuntimeException extends RuntimeException {
         return this.method;
     }
 
+    @Override
     public String toString() {
         return "CustomRuntimeException(code=" + this.getCode() + ", method=" + this.getMethod() + ")";
     }

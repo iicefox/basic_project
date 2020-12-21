@@ -24,9 +24,6 @@ public class PageForm<T extends PageForm<?>>{
     @Range(min = 1, max = 100, message = "每页显示的数量输入有误")
     private Integer size;
 
-    public PageForm() {
-    }
-
     /**
      * 计算当前页 ,方便mysql 进行分页查询
      * @return 返回 pageForm
@@ -52,6 +49,7 @@ public class PageForm<T extends PageForm<?>>{
         this.size = size;
     }
 
+    @Override
     public String toString() {
         return "PageForm(current=" + this.getCurrent() + ", size=" + this.getSize() + ")";
     }

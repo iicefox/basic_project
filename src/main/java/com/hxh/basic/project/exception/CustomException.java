@@ -63,6 +63,7 @@ public class CustomException extends Exception {
         return this.method;
     }
 
+    @Override
     public String toString() {
         return "CustomException(code=" + this.getCode() + ", method=" + this.getMethod() + ")";
     }

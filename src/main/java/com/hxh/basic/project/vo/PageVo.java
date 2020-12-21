@@ -36,9 +36,6 @@ public class PageVo<T> {
      */
     private Integer size;
 
-    public PageVo() {
-    }
-
     /**
      * 设置当前页和每页显示的数量
      * @param pageForm 分页表单
@@ -94,6 +91,7 @@ public class PageVo<T> {
         this.size = size;
     }
 
+    @Override
     public String toString() {
         return "PageVo(records=" + this.getRecords() + ", total=" + this.getTotal() + ", pages=" + this.getPages() + ", current=" + this.getCurrent() + ", size=" + this.getSize() + ")";
     }

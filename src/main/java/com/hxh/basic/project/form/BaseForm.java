@@ -6,7 +6,7 @@ package com.hxh.basic.project.form;
  * Utils: Intellij Idea
  * Description: 通用表单
  */
-public abstract class BaseForm<T> {
+public interface BaseForm<T> {
 
     /**
      * 构建实例

@@ -59,10 +59,6 @@ public class User implements Serializable {
      */
     private Date updateTime;
 
-    public User() {
-    }
-
-
     public Integer getId() {
         return this.id;
     }
@@ -135,6 +131,7 @@ public class User implements Serializable {
         return this;
     }
 
+    @Override
     public String toString() {
         return "User(id=" + this.getId() + ", nickname=" + this.getNickname() + ", username=" + this.getUsername() + ", password=" + this.getPassword() + ", birthday=" + this.getBirthday() + ", status=" + this.getStatus() + ", createTime=" + this.getCreateTime() + ", updateTime=" + this.getUpdateTime() + ")";
     }

@@ -7,7 +7,9 @@ import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +27,14 @@ public class YamlUtil {
      */
     private static final String YAML_EXT_REG = "^ya?ml$";
 
-    private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+    /**
+     * YAMLFactory: <br/>
+     * .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER); --> 让jackson写日期为字符串，而不是数值<br/>
+     * ObjectMapper: <br/>
+     * .findAndRegisterModules(); --> 读yaml文件时处理日期
+     * .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); --> 禁用特性: 缺省文件以三个横杠开头
+     */
+    private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)).findAndRegisterModules().disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
     private YamlUtil() {
     }
@@ -125,6 +134,7 @@ public class YamlUtil {
 
     /**
      * 对象转Yaml字符串
+     *
      * @param obj
      * @return
      * @throws JsonProcessingException
@@ -135,6 +145,7 @@ public class YamlUtil {
 
     /**
      * 对象转Yaml文件
+     *
      * @param obj
      * @param file Yaml文件
      * @throws IOException
@@ -145,6 +156,7 @@ public class YamlUtil {
 
     /**
      * 对象转Yaml文件
+     *
      * @param obj
      * @param file Yaml文件
      * @throws IOException

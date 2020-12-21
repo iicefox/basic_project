@@ -1,8 +1,5 @@
 package com.hxh.basic.project.util;
 
-import com.hxh.basic.project.aop.GlobalExceptionHandling;
-import org.slf4j.Logger;
-
 /**
  * @author 黄训辉
  * Date: Created in 18/5/20 下午4:49
@@ -10,8 +7,6 @@ import org.slf4j.Logger;
  * Description: 获取当前方法和行号
  */
 public class MethodUtil {
-
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MethodUtil.class);
 
     /**
      * 私有化工具类 防止被实例化
