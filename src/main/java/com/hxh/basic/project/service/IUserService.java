@@ -4,8 +4,8 @@ import com.hxh.basic.project.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.hxh.basic.project.form.user.AddUserForm;
 import com.hxh.basic.project.form.user.ListUserForm;
-import com.hxh.basic.project.vo.PageVo;
-import com.hxh.basic.project.vo.UserVo;
+import com.hxh.basic.project.vo.PageVO;
+import com.hxh.basic.project.vo.UserVO;
 
 /**
  * @author huangxunhui
@@ -27,7 +27,7 @@ public interface IUserService extends IService<User> {
      * @param listUserForm 表单数据
      * @return 用户列表
      */
-    PageVo<UserVo> listUser(ListUserForm listUserForm);
+    PageVO<UserVO> listUser(ListUserForm listUserForm);
 
     /**
      * 删除用户

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
  * Utils: Intellij Idea
  * Description: 用户视图模型
  */
-public class UserVo {
+public class UserVO {
 
     /**
      * 用户编号

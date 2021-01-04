@@ -10,8 +10,8 @@ import com.hxh.basic.project.form.user.ListUserForm;
 import com.hxh.basic.project.mapper.UserMapper;
 import com.hxh.basic.project.service.IUserService;
 import com.hxh.basic.project.util.MethodUtil;
-import com.hxh.basic.project.vo.PageVo;
-import com.hxh.basic.project.vo.UserVo;
+import com.hxh.basic.project.vo.PageVO;
+import com.hxh.basic.project.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,8 +43,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      * @return 用户列表
      */
     @Override
-    public PageVo<UserVo> listUser(ListUserForm listUserForm) {
-        PageVo<UserVo> pageVo = new PageVo<UserVo>().setCurrentAndSize(listUserForm);
+    public PageVO<UserVO> listUser(ListUserForm listUserForm) {
+        PageVO<UserVO> pageVo = new PageVO<UserVO>().setCurrentAndSize(listUserForm);
         pageVo.setTotal(countUser(listUserForm.getStatus()));
         pageVo.setRecords(userMapper.listUser(listUserForm.calcCurrent()));
         return pageVo;

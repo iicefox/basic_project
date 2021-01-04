@@ -2,8 +2,8 @@ package com.hxh.basic.project.aop;
 
 import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.exception.CustomRuntimeException;
-import com.hxh.basic.project.util.ResultVoUtil;
-import com.hxh.basic.project.vo.ResultVo;
+import com.hxh.basic.project.util.ResultVOUtil;
+import com.hxh.basic.project.vo.ResultVO;
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -26,17 +26,17 @@ import java.util.Objects;
  * Description: 全局异常处理
  */
 @RestControllerAdvice
-public class GlobalExceptionHandling {
+public class GlobalExceptionHandler {
 
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandling.class);
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * 自定义异常
      */
     @ExceptionHandler(value = CustomRuntimeException.class)
-    public ResultVo processException(CustomRuntimeException e) {
+    public ResultVO processException(CustomRuntimeException e) {
         log.error("位置:{} -> 错误信息:{}", e.getMethod() ,e.getLocalizedMessage());
-        return ResultVoUtil.error(Objects.requireNonNull(ResultEnum.getByCode(e.getCode())));
+        return ResultVOUtil.error(Objects.requireNonNull(ResultEnum.getByCode(e.getCode())));
     }
 
     /**
@@ -44,9 +44,9 @@ public class GlobalExceptionHandling {
      */
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler({BindException.class})
-    public ResultVo bindException(BindException e) {
+    public ResultVO bindException(BindException e) {
         BindingResult bindingResult = e.getBindingResult();
-        return ResultVoUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        return ResultVOUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
     }
 
     /**
@@ -54,36 +54,36 @@ public class GlobalExceptionHandling {
      */
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResultVo bindException(MethodArgumentNotValidException e) {
+    public ResultVO bindException(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
-        return ResultVoUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        return ResultVOUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
     }
 
     /**
      * 参数格式错误
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResultVo methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
+    public ResultVO methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
         log.error("错误信息{}", e.getLocalizedMessage());
-        return ResultVoUtil.error(ResultEnum.ARGUMENT_TYPE_MISMATCH);
+        return ResultVOUtil.error(ResultEnum.ARGUMENT_TYPE_MISMATCH);
     }
 
     /**
      * 参数格式错误
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResultVo httpMessageNotReadable(HttpMessageNotReadableException e) {
+    public ResultVO httpMessageNotReadable(HttpMessageNotReadableException e) {
         log.error("错误信息:{}", e.getLocalizedMessage());
-        return ResultVoUtil.error(ResultEnum.FORMAT_ERROR);
+        return ResultVOUtil.error(ResultEnum.FORMAT_ERROR);
     }
 
     /**
      * 请求方式不支持
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    public ResultVo httpReqMethodNotSupported(HttpRequestMethodNotSupportedException e) {
+    public ResultVO httpReqMethodNotSupported(HttpRequestMethodNotSupportedException e) {
         log.error("错误信息:{}", e.getLocalizedMessage());
-        return ResultVoUtil.error(ResultEnum.REQ_METHOD_NOT_SUPPORT);
+        return ResultVOUtil.error(ResultEnum.REQ_METHOD_NOT_SUPPORT);
     }
 
     /**
@@ -91,8 +91,8 @@ public class GlobalExceptionHandling {
      */
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
-    public ResultVo exception(Exception e) {
+    public ResultVO exception(Exception e) {
         log.error(e.getMessage(), e);
-        return ResultVoUtil.error(ResultEnum.UNKNOWN_EXCEPTION);
+        return ResultVOUtil.error(ResultEnum.UNKNOWN_EXCEPTION);
     }
 }

@@ -1,4 +1,4 @@
-package com.hxh.basic.project.config.japidocs;
+package com.hxh.basic.project.config.plugin.japidocs;
 
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;

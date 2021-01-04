@@ -2,7 +2,7 @@ package com.hxh.basic.project.util;
 
 
 import com.hxh.basic.project.enums.ResultEnum;
-import com.hxh.basic.project.vo.ResultVo;
+import com.hxh.basic.project.vo.ResultVO;
 
 /**
  * @author huangxunhui
@@ -10,21 +10,21 @@ import com.hxh.basic.project.vo.ResultVo;
  * Utils: Intellij Idea
  * Description: 返回数据工具类
  */
-public class ResultVoUtil {
+public class ResultVOUtil {
 
     /**
      * 私有化工具类 防止被实例化
      * j
      */
-    private ResultVoUtil() {}
+    private ResultVOUtil() {}
 
     /**
      * 成功
      * @param object 需要返回的数据
      * @return data
      */
-    public static ResultVo success(Object object) {
-        ResultVo result = new ResultVo();
+    public static ResultVO success(Object object) {
+        ResultVO result = new ResultVO();
         result.setCode(0);
         result.setMessage("ok");
         result.setData(object);
@@ -35,7 +35,7 @@ public class ResultVoUtil {
      * 成功
      * @return 返回空
      */
-    public static ResultVo success() {
+    public static ResultVO success() {
         return success(null);
     }
 
@@ -44,8 +44,8 @@ public class ResultVoUtil {
      * @param resultEnum 错误枚举类
      * @return 错误信息
      */
-    public static ResultVo error(ResultEnum resultEnum) {
-        ResultVo result = new ResultVo();
+    public static ResultVO error(ResultEnum resultEnum) {
+        ResultVO result = new ResultVO();
         result.setCode(resultEnum.getCode());
         result.setMessage(resultEnum.getMsg());
         return result;
@@ -57,8 +57,8 @@ public class ResultVoUtil {
      * @param msg 消息
      * @return ResultBean
      */
-    public static ResultVo error(Integer code, String msg) {
-        ResultVo result = new ResultVo();
+    public static ResultVO error(Integer code, String msg) {
+        ResultVO result = new ResultVO();
         result.setCode(code);
         result.setMessage(msg);
         return result;
@@ -69,7 +69,7 @@ public class ResultVoUtil {
      * @param msg 错误信息
      * @return ResultBean
      */
-    public static ResultVo error(String msg) {
+    public static ResultVO error(String msg) {
         return error(-1, msg);
     }
 

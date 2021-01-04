@@ -11,7 +11,7 @@ import java.util.List;
  * Utils: Intellij Idea
  * Description: 分页视图对象
  */
-public class PageVo<T> {
+public class PageVO<T> {
     /**
      * 分页数据
      */
@@ -41,7 +41,7 @@ public class PageVo<T> {
      * @param pageForm 分页表单
      * @return 返回分页信息
      */
-    public PageVo<T> setCurrentAndSize(PageForm<?> pageForm){
+    public PageVO<T> setCurrentAndSize(PageForm<?> pageForm){
         BeanUtils.copyProperties(pageForm,this);
         return this;
     }

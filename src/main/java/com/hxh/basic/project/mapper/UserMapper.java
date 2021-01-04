@@ -3,7 +3,7 @@ package com.hxh.basic.project.mapper;
 import com.hxh.basic.project.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.hxh.basic.project.form.user.ListUserForm;
-import com.hxh.basic.project.vo.UserVo;
+import com.hxh.basic.project.vo.UserVO;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +24,6 @@ public interface UserMapper extends BaseMapper<User> {
      * @return 用户列表
      */
     @Select("SELECT id,nickname,username,birthday FROM `user` WHERE `status`= #{status} LIMIT #{current},#{size}")
-    List<UserVo> listUser(ListUserForm listUserForm);
+    List<UserVO> listUser(ListUserForm listUserForm);
 
 }

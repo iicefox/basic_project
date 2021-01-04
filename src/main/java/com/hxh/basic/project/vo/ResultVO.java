@@ -6,7 +6,7 @@ package com.hxh.basic.project.vo;
  * Utils: Intellij Idea
  * Description: 固定返回格式
  */
-public class ResultVo {
+public class ResultVO {
 
     /**
      * 错误码

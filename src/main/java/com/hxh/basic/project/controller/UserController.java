@@ -5,8 +5,8 @@ import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.form.user.AddUserForm;
 import com.hxh.basic.project.form.user.ListUserForm;
 import com.hxh.basic.project.service.IUserService;
-import com.hxh.basic.project.util.ResultVoUtil;
-import com.hxh.basic.project.vo.ResultVo;
+import com.hxh.basic.project.util.ResultVOUtil;
+import com.hxh.basic.project.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -30,11 +30,11 @@ public class UserController {
      * @return 成功或者失败
      */
     @PostMapping("/addUser")
-    public ResultVo addUser(@Validated @RequestBody AddUserForm userForm){
+    public ResultVO addUser(@Validated @RequestBody AddUserForm userForm){
         if(userService.addUser(userForm)){
-            return ResultVoUtil.success();
+            return ResultVOUtil.success();
         }else{
-            return ResultVoUtil.error(ResultEnum.ADD_ERROR);
+            return ResultVOUtil.error(ResultEnum.ADD_ERROR);
         }
     }
 
@@ -44,8 +44,8 @@ public class UserController {
      * @return 用户列表
      */
     @GetMapping("/listUser")
-    public ResultVo listUser(@Validated ListUserForm listUserForm){
-        return ResultVoUtil.success(userService.listUser(listUserForm));
+    public ResultVO listUser(@Validated ListUserForm listUserForm){
+        return ResultVOUtil.success(userService.listUser(listUserForm));
     }
 
     /**
@@ -54,8 +54,8 @@ public class UserController {
      * @return 成功或者失败
      */
     @DeleteMapping("/deleteUser/{id}")
-    public ResultVo deleteUser(@PathVariable("id") String id){
+    public ResultVO deleteUser(@PathVariable("id") String id){
         userService.deleteUser(id);
-        return ResultVoUtil.success();
+        return ResultVOUtil.success();
     }
 }

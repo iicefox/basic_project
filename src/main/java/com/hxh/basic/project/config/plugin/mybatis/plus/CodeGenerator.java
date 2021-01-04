@@ -1,4 +1,4 @@
-package com.hxh.basic.project.config.mybatis.plus;
+package com.hxh.basic.project.config.plugin.mybatis.plus;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
