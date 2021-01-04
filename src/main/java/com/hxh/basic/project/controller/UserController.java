@@ -26,35 +26,38 @@ public class UserController {
 
     /**
      * 添加用户
+     *
      * @param userForm 表单数据
      * @return 成功或者失败
      */
     @PostMapping("/addUser")
-    public ResultVO addUser(@Validated @RequestBody AddUserForm userForm){
-        if(userService.addUser(userForm)){
+    public ResultVO addUser(@Validated @RequestBody AddUserForm userForm) {
+        if (userService.addUser(userForm)) {
             return ResultVOUtil.success();
-        }else{
+        } else {
             return ResultVOUtil.error(ResultEnum.ADD_ERROR);
         }
     }
 
     /**
      * 获取用户列表
+     *
      * @param listUserForm 表单数据
      * @return 用户列表
      */
     @GetMapping("/listUser")
-    public ResultVO listUser(@Validated ListUserForm listUserForm){
+    public ResultVO listUser(@Validated ListUserForm listUserForm) {
         return ResultVOUtil.success(userService.listUser(listUserForm));
     }
 
     /**
      * 删除用户
+     *
      * @param id 用户编号
      * @return 成功或者失败
      */
     @DeleteMapping("/deleteUser/{id}")
-    public ResultVO deleteUser(@PathVariable("id") String id){
+    public ResultVO deleteUser(@PathVariable("id") String id) {
         userService.deleteUser(id);
         return ResultVOUtil.success();
     }
