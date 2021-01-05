@@ -2,6 +2,7 @@ package com.hxh.basic.project.aop;
 
 import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.exception.CustomRuntimeException;
+import com.hxh.basic.project.util.MethodUtil;
 import com.hxh.basic.project.util.ResultVOUtil;
 import com.hxh.basic.project.vo.ResultVO;
 import org.slf4j.Logger;
@@ -45,6 +46,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler({BindException.class})
     public ResultVO bindException(BindException e) {
+        log.error("位置:{} -> 错误信息:{}", MethodUtil.getLineInfo() ,e.getLocalizedMessage());
         BindingResult bindingResult = e.getBindingResult();
         return ResultVOUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
     }
@@ -55,6 +57,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResultVO bindException(MethodArgumentNotValidException e) {
+        log.error("位置:{} -> 错误信息:{}", MethodUtil.getLineInfo() ,e.getLocalizedMessage());
         BindingResult bindingResult = e.getBindingResult();
         return ResultVOUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
     }
@@ -64,7 +67,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResultVO methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
-        log.error("错误信息{}", e.getLocalizedMessage());
+        log.error("位置:{} -> 错误信息:{}", MethodUtil.getLineInfo() ,e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.ARGUMENT_TYPE_MISMATCH);
     }
 
@@ -73,7 +76,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResultVO httpMessageNotReadable(HttpMessageNotReadableException e) {
-        log.error("错误信息:{}", e.getLocalizedMessage());
+        log.error("位置:{} -> 错误信息:{}", MethodUtil.getLineInfo() ,e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.FORMAT_ERROR);
     }
 
@@ -82,7 +85,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResultVO httpReqMethodNotSupported(HttpRequestMethodNotSupportedException e) {
-        log.error("错误信息:{}", e.getLocalizedMessage());
+        log.error("位置:{} -> 错误信息:{}", MethodUtil.getLineInfo() ,e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.REQ_METHOD_NOT_SUPPORT);
     }
 
@@ -92,7 +95,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
     public ResultVO exception(Exception e) {
-        log.error(e.getMessage(), e);
+        log.error("位置:{} -> 错误信息:{}", MethodUtil.getLineInfo() ,e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.UNKNOWN_EXCEPTION);
     }
 }

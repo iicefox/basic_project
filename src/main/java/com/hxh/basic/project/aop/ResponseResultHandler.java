@@ -3,6 +3,7 @@ package com.hxh.basic.project.aop;
 import com.hxh.basic.project.annotation.ResponseResult;
 import com.hxh.basic.project.interceptor.ResponseResultInterceptor;
 import com.hxh.basic.project.util.ResultVOUtil;
+import com.hxh.basic.project.vo.ResultVO;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -50,6 +51,7 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        return ResultVOUtil.success(o);
+        // 代码发生异常,统一异常处理器已进行ResultVO包装,直接返回
+        return o instanceof ResultVO ? o : ResultVOUtil.success(o);
     }
 }
