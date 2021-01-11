@@ -10,16 +10,20 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author huangxunhui
- * @date Created in 2020/3/7 2:21 下午
- * Utils: Intellij Idea
- * Description: 数据库资源操作类
+ * 数据库资源操作类
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @Repository
 public interface UserMapper extends BaseMapper<User> {
 
     /**
      * 获取用户列表
+     *
      * @param listUserForm 表单数据
      * @return 用户列表
      */

@@ -4,10 +4,12 @@ package com.hxh.basic.project.exception;
 import com.hxh.basic.project.enums.ResultEnum;
 
 /**
- * @author huangxunhui
- * Date: Created in 2018-12-18 10:25
- * Utils: Intellij Idea
- * Description: 自定义异常
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 11:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public class CustomException extends Exception {
 

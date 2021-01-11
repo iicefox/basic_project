@@ -1,10 +1,13 @@
 package com.hxh.basic.project.vo;
 
 /**
- * @author huangxunhui
- * Date: Created in 2018-12-17 11:05
- * Utils: Intellij Idea
- * Description: 固定返回格式
+ * 固定返回格式
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public class ResultVO {
 

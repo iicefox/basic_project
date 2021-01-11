@@ -3,10 +3,13 @@ package com.hxh.basic.project.vo;
 import java.time.LocalDateTime;
 
 /**
- * @author huangxunhui
- * Date: Created in 2020/3/6 4:13 下午
- * Utils: Intellij Idea
- * Description: 用户视图模型
+ * 用户视图模型
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public class UserVO {
 

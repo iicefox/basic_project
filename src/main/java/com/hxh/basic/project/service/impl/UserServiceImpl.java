@@ -16,10 +16,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @author huangxunhui
- * @date Created in 2020/3/6 4:50 下午
- * Utils: Intellij Idea
- * Description: 用户服务实现类
+ * 用户服务实现类
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {

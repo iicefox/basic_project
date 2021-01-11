@@ -15,10 +15,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author huangxunhui
- * @date Created in 2020/3/6 4:30 下午
- * Utils: Intellij Idea
- * Description: 用户前端控制器
+ * 用户前端控制器
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 13:21
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @RestController
 @RequestMapping("/user")

@@ -12,10 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author huangxunhui
- * Date: Created in 2019-03-12 11:29
- * Utils: Intellij Idea
- * Description: 代码生成器
+ * 代码生成器
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2020/12/15 13:21
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @SuppressWarnings("AlibabaAvoidCommentBehindStatement")
 public class CodeGenerator {
@@ -104,9 +107,9 @@ public class CodeGenerator {
      * 策略配置
      *
      * @param tableNames 表名称
-     * strategy.setInclude(tableNames) 传入需要 "生成" 的表名
-     * strategy.setExclude(tableNames) 传入需要 "过滤" 的表名
-     * strategy.setSuperEntityColumns("id");
+     *                   strategy.setInclude(tableNames) 传入需要 "生成" 的表名
+     *                   strategy.setExclude(tableNames) 传入需要 "过滤" 的表名
+     *                   strategy.setSuperEntityColumns("id");
      * @return 返回 getStrategyConfig
      */
     private static StrategyConfig getStrategyConfig(String... tableNames) {
@@ -137,8 +140,7 @@ public class CodeGenerator {
         };
 
         // 如果模板引擎是 freemarker
-        @SuppressWarnings("java:S1075")
-        final String templatePath = "/templates/mapper.xml.ftl";
+        @SuppressWarnings("java:S1075") final String templatePath = "/templates/mapper.xml.ftl";
 
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();

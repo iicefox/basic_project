@@ -5,10 +5,13 @@ import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.vo.ResultVO;
 
 /**
- * @author huangxunhui
- * Date: Created in 18/8/20 上午11:05
- * Utils: Intellij Idea
- * Description: 返回数据工具类
+ * 返回数据工具类
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public class ResultVOUtil {
 
@@ -16,10 +19,12 @@ public class ResultVOUtil {
      * 私有化工具类 防止被实例化
      * j
      */
-    private ResultVOUtil() {}
+    private ResultVOUtil() {
+    }
 
     /**
      * 成功
+     *
      * @param object 需要返回的数据
      * @return data
      */
@@ -33,6 +38,7 @@ public class ResultVOUtil {
 
     /**
      * 成功
+     *
      * @return 返回空
      */
     public static ResultVO success() {
@@ -41,6 +47,7 @@ public class ResultVOUtil {
 
     /**
      * 错误
+     *
      * @param resultEnum 错误枚举类
      * @return 错误信息
      */
@@ -53,8 +60,9 @@ public class ResultVOUtil {
 
     /**
      * 错误
+     *
      * @param code 状态码
-     * @param msg 消息
+     * @param msg  消息
      * @return ResultBean
      */
     public static ResultVO error(Integer code, String msg) {
@@ -66,6 +74,7 @@ public class ResultVOUtil {
 
     /**
      * 错误
+     *
      * @param msg 错误信息
      * @return ResultBean
      */

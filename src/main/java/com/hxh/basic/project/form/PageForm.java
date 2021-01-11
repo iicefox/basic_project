@@ -5,12 +5,15 @@ import org.hibernate.validator.constraints.Range;
 import javax.validation.constraints.Min;
 
 /**
- * @author huangxunhui
- * Date: Created in 2019-05-22 11:52
- * Utils: Intellij Idea
- * Description: 分页需要的表单数据
+ * 分页需要的表单数据
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
-public class PageForm<T extends PageForm<?>>{
+public class PageForm<T extends PageForm<?>> {
 
     /**
      * 页码
@@ -26,10 +29,11 @@ public class PageForm<T extends PageForm<?>>{
 
     /**
      * 计算当前页 ,方便mysql 进行分页查询
+     *
      * @return 返回 pageForm
      */
-    public T calcCurrent(){
-        current = (current - 1 ) * size;
+    public T calcCurrent() {
+        current = (current - 1) * size;
         return (T) this;
     }
 

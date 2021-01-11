@@ -7,12 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * @author yomu
+ * @version 1.0
+ * @date 2020/12/4 13:21
  * <p>
- * 
- * </p>
- *
- * @author huangxunhui
- * @since 2020-03-06
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public class User implements Serializable {
 
@@ -45,7 +44,7 @@ public class User implements Serializable {
     private Date birthday;
 
     /**
-     * 用户状态 0正常 1 禁用  -1 删除 
+     * 用户状态 0正常 1 禁用  -1 删除
      */
     private String status;
 

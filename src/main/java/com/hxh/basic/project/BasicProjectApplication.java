@@ -5,10 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author huangxunhui
- * Date: Created in 2019-03-12 11:29
- * Utils: Intellij Idea
- * Description: 启动类
+ * 启动类
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @SpringBootApplication
 @MapperScan("com.hxh.basic.project.mapper")

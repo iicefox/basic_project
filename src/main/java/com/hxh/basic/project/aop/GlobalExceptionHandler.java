@@ -20,10 +20,13 @@ import java.util.Objects;
 
 
 /**
- * @author 黄训辉
- * Date: Created in 2018/3/22 11:02
- * Utils: Intellij Idea
- * Description: 全局异常处理
+ * 全局异常处理
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 11:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {

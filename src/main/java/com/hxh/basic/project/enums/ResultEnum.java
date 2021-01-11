@@ -2,10 +2,13 @@ package com.hxh.basic.project.enums;
 
 
 /**
- * @author huangxunhui
- * Date: Created in 18/8/29 上午9:54
- * Utils: Intellij Idea
- * Description: 返回状态枚举类
+ * 返回状态枚举类
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 11:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public enum ResultEnum {
 
@@ -52,7 +55,7 @@ public enum ResultEnum {
     /**
      * 请求方式不支持
      */
-    REQ_METHOD_NOT_SUPPORT(110,"请求方式不支持"),
+    REQ_METHOD_NOT_SUPPORT(110, "请求方式不支持"),
     ;
 
     private Integer code;
@@ -66,12 +69,13 @@ public enum ResultEnum {
 
     /**
      * 通过状态码获取枚举对象
+     *
      * @param code 状态码
      * @return 枚举对象
      */
-    public static ResultEnum getByCode(int code){
+    public static ResultEnum getByCode(int code) {
         for (ResultEnum resultEnum : ResultEnum.values()) {
-            if(code == resultEnum.getCode()){
+            if (code == resultEnum.getCode()) {
                 return resultEnum;
             }
         }

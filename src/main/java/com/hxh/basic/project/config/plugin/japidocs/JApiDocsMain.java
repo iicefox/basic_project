@@ -8,7 +8,9 @@ import io.github.yedaxia.apidocs.DocsConfig;
  *
  * @author yomu
  * @version 1.0
- * @create 2020/12/15 13:21
+ * @date 2020/12/15 13:21
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 public class JApiDocsMain {

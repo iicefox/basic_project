@@ -6,10 +6,13 @@ import org.springframework.beans.BeanUtils;
 import java.util.List;
 
 /**
- * @author huangxunhui
- * Date: Created in 2019-03-18 21:49
- * Utils: Intellij Idea
- * Description: 分页视图对象
+ * 分页视图对象
+ *
+ * @author yomu
+ * @version 1.0
+ * @date 2021/1/4 15:02
+ * <p>
+ * Copyright  Copyright 2021 yomu Inc.
  */
 public class PageVO<T> {
     /**
