@@ -13,6 +13,7 @@ import com.hxh.basic.project.enums.ResultEnum;
  */
 public class CustomException extends Exception {
 
+    private static final long serialVersionUID = 6464111054678642386L;
     /**
      * 状态码
      */
@@ -31,7 +32,7 @@ public class CustomException extends Exception {
      * @param method     方法
      */
     public CustomException(ResultEnum resultEnum, String method) {
-        super(resultEnum.getMsg());
+        super(resultEnum.getMessage());
         this.code = resultEnum.getCode();
         this.method = method;
     }
@@ -67,7 +68,7 @@ public class CustomException extends Exception {
 
     @Override
     public String toString() {
-        return "CustomException(code=" + this.getCode() + ", method=" + this.getMethod() + ")";
+        return "CustomException(code=" + this.getCode() + ", method=" + this.getMethod()+ ", message=" + super.getLocalizedMessage() + ")";
     }
 
 }

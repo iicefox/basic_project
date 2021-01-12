@@ -2,6 +2,9 @@ package com.hxh.basic.project.form.user;
 
 import com.hxh.basic.project.entity.User;
 import com.hxh.basic.project.form.BaseForm;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,6 +23,9 @@ import java.util.Date;
  * <p>
  * Copyright  Copyright 2021 yomu Inc.
  */
+@ToString
+@Getter
+@Setter
 public class AddUserForm implements BaseForm<User> {
 
     /**
@@ -62,35 +68,4 @@ public class AddUserForm implements BaseForm<User> {
         return user;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

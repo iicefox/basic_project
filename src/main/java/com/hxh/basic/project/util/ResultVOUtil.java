@@ -13,6 +13,7 @@ import com.hxh.basic.project.vo.ResultVO;
  * <p>
  * Copyright  Copyright 2021 yomu Inc.
  */
+@SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 public class ResultVOUtil {
 
     /**
@@ -30,8 +31,8 @@ public class ResultVOUtil {
      */
     public static ResultVO success(Object object) {
         ResultVO result = new ResultVO();
-        result.setCode(0);
-        result.setMessage("ok");
+        result.setCode(ResultEnum.OK.getCode());
+        result.setMessage(ResultEnum.OK.getMessage());
         result.setData(object);
         return result;
     }
@@ -54,7 +55,7 @@ public class ResultVOUtil {
     public static ResultVO error(ResultEnum resultEnum) {
         ResultVO result = new ResultVO();
         result.setCode(resultEnum.getCode());
-        result.setMessage(resultEnum.getMsg());
+        result.setMessage(resultEnum.getMessage());
         return result;
     }
 

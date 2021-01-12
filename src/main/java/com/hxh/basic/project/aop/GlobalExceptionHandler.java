@@ -2,9 +2,10 @@ package com.hxh.basic.project.aop;
 
 import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.exception.CustomRuntimeException;
+import com.hxh.basic.project.util.MethodUtil;
 import com.hxh.basic.project.util.ResultVOUtil;
 import com.hxh.basic.project.vo.ResultVO;
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -28,10 +29,9 @@ import java.util.Objects;
  * <p>
  * Copyright  Copyright 2021 yomu Inc.
  */
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * 自定义异常
@@ -48,7 +48,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler({BindException.class})
     public ResultVO bindException(BindException e) {
-        log.error(e.getLocalizedMessage(), e);
         BindingResult bindingResult = e.getBindingResult();
         return ResultVOUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
     }
@@ -59,7 +58,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResultVO bindException(MethodArgumentNotValidException e) {
-        log.error(e.getLocalizedMessage(), e);
         BindingResult bindingResult = e.getBindingResult();
         return ResultVOUtil.error(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
     }
@@ -69,7 +67,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResultVO methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
-        log.error(e.getLocalizedMessage(), e);
+        log.error(e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.ARGUMENT_TYPE_MISMATCH);
     }
 
@@ -78,7 +76,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResultVO httpMessageNotReadable(HttpMessageNotReadableException e) {
-        log.error(e.getLocalizedMessage(), e);
+        log.error(e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.FORMAT_ERROR);
     }
 
@@ -87,7 +85,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResultVO httpReqMethodNotSupported(HttpRequestMethodNotSupportedException e) {
-        log.error(e.getLocalizedMessage(), e);
+        log.error(e.getLocalizedMessage());
         return ResultVOUtil.error(ResultEnum.REQ_METHOD_NOT_SUPPORT);
     }
 

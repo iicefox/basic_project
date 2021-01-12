@@ -19,7 +19,7 @@ public class MethodUtil {
 
     public static String getLineInfo() {
         StackTraceElement ste = new Throwable().getStackTrace()[1];
-        return ste.getMethodName() + " -> " + ste.getLineNumber() + "行";
+        return ste.getClassName() + "#" + ste.getMethodName() + " -> " + ste.getLineNumber() + "行";
     }
 
 }

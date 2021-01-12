@@ -14,6 +14,8 @@ import com.hxh.basic.project.enums.ResultEnum;
  */
 public class CustomRuntimeException extends RuntimeException {
 
+    private static final long serialVersionUID = 8675330359281529640L;
+
     /**
      * 状态码
      */
@@ -32,7 +34,7 @@ public class CustomRuntimeException extends RuntimeException {
      * @param method     方法
      */
     public CustomRuntimeException(ResultEnum resultEnum, String method) {
-        super(resultEnum.getMsg());
+        super(resultEnum.getMessage());
         this.code = resultEnum.getCode();
         this.method = method;
     }
@@ -58,7 +60,6 @@ public class CustomRuntimeException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "CustomRuntimeException(code=" + this.getCode() + ", method=" + this.getMethod() + ")";
+        return "CustomRuntimeException(code=" + this.getCode() + ", method=" + this.getMethod() + ", message=" + super.getLocalizedMessage() + ")";
     }
-
 }

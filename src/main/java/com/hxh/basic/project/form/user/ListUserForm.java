@@ -1,6 +1,8 @@
 package com.hxh.basic.project.form.user;
 
 import com.hxh.basic.project.form.PageForm;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotEmpty;
@@ -14,6 +16,8 @@ import javax.validation.constraints.NotEmpty;
  * <p>
  * Copyright  Copyright 2021 yomu Inc.
  */
+@Getter
+@Setter
 public class ListUserForm extends PageForm<ListUserForm> {
 
     /**
@@ -23,11 +27,4 @@ public class ListUserForm extends PageForm<ListUserForm> {
     @Range(min = -1, max = 1, message = "用户状态有误")
     private String status;
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
