@@ -2,7 +2,6 @@ package com.hxh.basic.project.aop;
 
 import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.exception.CustomRuntimeException;
-import com.hxh.basic.project.util.MethodUtil;
 import com.hxh.basic.project.util.ResultVOUtil;
 import com.hxh.basic.project.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;

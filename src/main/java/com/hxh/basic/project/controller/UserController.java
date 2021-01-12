@@ -2,7 +2,6 @@ package com.hxh.basic.project.controller;
 
 
 import com.hxh.basic.project.annotation.ResponseResult;
-import com.hxh.basic.project.entity.User;
 import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.form.user.AddUserForm;
 import com.hxh.basic.project.form.user.ListUserForm;
