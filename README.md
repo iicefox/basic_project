@@ -7,7 +7,7 @@
 
 ### 基础项目该包含哪些东西。
 
-- [关于lombok](develop-guidelines.md#关于lombok)
+- [关于lombok](./README.md#关于lombok)
 - JApiDocs接口文档。
 - CodeGenerator 代码生成器。
 - 统一返回。
@@ -26,7 +26,7 @@
 -----
 
 ### 关于lombok
-详见文档[开发规范](develop guidelines.md) 
+详见文档[开发规范](develop-guidelines.md#关于lombok) 
 
 ### JApiDocs
 
