@@ -1,5 +1,6 @@
 package com.hxh.basic.project.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hxh.basic.project.entity.User;
@@ -14,6 +15,7 @@ import com.hxh.basic.project.vo.PageVO;
 import com.hxh.basic.project.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 /**
  * 用户服务实现类
@@ -32,6 +34,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     /**
      * 添加用户
+     *
      * @param userForm 表单数据
      * @return true 或者 false
      */
@@ -42,6 +45,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     /**
      * 获取用户列表
+     *
      * @param listUserForm 表单数据
      * @return 用户列表
      */
@@ -49,29 +53,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public PageVO<UserVO> listUser(ListUserForm listUserForm) {
         PageVO<UserVO> pageVo = new PageVO<UserVO>().setCurrentAndSize(listUserForm);
         pageVo.setTotal(countUser(listUserForm.getStatus()));
-        pageVo.setRecords(userMapper.listUser(listUserForm.calcCurrent()));
+        pageVo.setRecords(CollUtil.emptyIfNull(userMapper.listUser(listUserForm.calcCurrent())));
         return pageVo;
     }
 
     /**
      * 删除用户
+     *
      * @param id id
      */
     @Override
     public void deleteUser(String id) {
         // 如果删除失败抛出异常。 -- 演示而已不推荐这样干
-        if(!removeById(id)){
+        if (!removeById(id)) {
             throw new CustomRuntimeException(ResultEnum.DELETE_ERROR, MethodUtil.getLineInfo());
         }
     }
 
     /**
      * 获取用户数量
+     *
      * @param status 状态
      * @return 用户数量
      */
-    private Integer countUser(String status){
-        return count(new QueryWrapper<User>().eq("status",status));
+    private Integer countUser(String status) {
+        return count(new QueryWrapper<User>().eq("status", status));
     }
 
 }
