@@ -3,11 +3,11 @@
 &emsp;&emsp;建立一个全新的项目，或者把旧的庞大的项目，进行拆分成多个项目。在建立新的项目中，经常需要做一些重复的工作，比如说拷贝一下常用的工具类，通用代码等等。所以就可以做一个基础的项目方便使用，在经历新项目的时候，直接在基础项目上进行简单配置就可以开发业务代码了。
 
 ### 规范
-详见文档[开发规范](develop-guidelines.md)
+详见文档[开发规范](docs/develop-guidelines.md)
 
 ### 基础项目该包含哪些东西。
-
-- [关于lombok](#关于lombok)
+- [lombok](docs/lombok.md)
+- [JSR303框架Hibernate Validator](docs/hibernate-validator.md)
 - [JApiDocs接口文档](#JApiDocs接口文档)
 - [CodeGenerator 代码生成器](#CodeGenerator-代码生成器)
 - [统一返回](#统一返回)
@@ -21,31 +21,21 @@
 - [日志配置](#日志配置)
 - [JenkinsFile](#JenkinsFile)
 
-> 
------
-
-### 关于lombok
-详见文档[开发规范](develop-guidelines.md#关于lombok) 
-
+---
 ### JApiDocs
-
-&emsp;&emsp;相比swagger使用方法更加简单。不会把插件报错到项目中去。界面简洁。支持导出html,即可本地预览,也可部署在http服务器上。国内官网方便查阅。
+相比swagger使用方法更加简单。不会把插件报错到项目中去。界面简洁。支持导出html,即可本地预览,也可部署在http服务器上。国内官网方便查阅。
 [官网地址](https://japidocs.agilestudio.cn/#/zh-cn/)
 
 ### CodeGenerator代码生成器。
-
 &emsp;&emsp; mybatis_plus代码生成器可以帮我们生成`entity`,`service`,`serviceImpl`,`mapper`,`mapper.xml`。省去了建立一大堆实体类的麻烦。
-
 &emsp;&emsp;由于配置太长这里就不贴出来了，对应的CodeGenerator的配置可以查看[基础项目](https://gitee.com/huangxunhui/basic_project.git)内的[`CodeGenerator.java`](https://gitee.com/huangxunhui/basic_project/blob/master/src/main/java/com/hxh/basic/project/config/mybatis/plus/CodeGenerator.java).
 
 ----
 
 ### 常用的封装
 
-#### 统一返回 ResultVo
-
+#### 统一返回 ResultVO
 将所有的接口的响应数据的格式进行统一。
-
 ```java
 public class ResultVo {
 
@@ -68,7 +58,6 @@ public class ResultVo {
 ```
 
 #### 抽象表单 BaseForm
-
 ```java
 public interface BaseForm<T> {
 
