@@ -7,7 +7,8 @@
 
 ### 基础项目该包含哪些东西。
 
-- [关于lombok](###关于lombok)
+- [关于lombok](#关于lombok)
+- [关于lombok](#japidocs-lombok)
 - JApiDocs接口文档。
 - CodeGenerator 代码生成器。
 - 统一返回。
@@ -35,6 +36,7 @@
 [官网地址](https://japidocs.agilestudio.cn/#/zh-cn/)
 
 ### CodeGenerator代码生成器。
+#### <span id='japidocs-lombok1'>关于lombok</span>
 
 &emsp;&emsp; mybatis_plus代码生成器可以帮我们生成`entity`,`service`,`serviceImpl`,`mapper`,`mapper.xml`。省去了建立一大堆实体类的麻烦。
 
