@@ -5,6 +5,7 @@ import com.hxh.basic.project.exception.CustomRuntimeException;
 import com.hxh.basic.project.util.ResultVOUtil;
 import com.hxh.basic.project.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.NotReadablePropertyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -68,6 +69,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({ConstraintViolationException.class})
     @ResponseStatus(HttpStatus.OK)
     public ResultVO handleConstraintViolationException(ConstraintViolationException e) {
+        return ResultVOUtil.error(Objects.requireNonNull(e.getLocalizedMessage()));
+    }
+
+    /**
+     * 拦截 List/Set集合 参数校验
+     */
+    @ExceptionHandler({NotReadablePropertyException.class})
+    @ResponseStatus(HttpStatus.OK)
+    public ResultVO handleNotReadablePropertyException(NotReadablePropertyException e) {
         return ResultVOUtil.error(Objects.requireNonNull(e.getLocalizedMessage()));
     }
 
