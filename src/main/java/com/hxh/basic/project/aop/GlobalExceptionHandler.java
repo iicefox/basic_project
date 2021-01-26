@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import javax.validation.ConstraintViolationException;
 import java.util.Objects;
 
 
@@ -62,7 +63,18 @@ public class GlobalExceptionHandler {
     }
 
     /**
+     * 拦截 requestParam/PathVariable 参数校验
+     */
+    @ExceptionHandler({ConstraintViolationException.class})
+    @ResponseStatus(HttpStatus.OK)
+    public ResultVO handleConstraintViolationException(ConstraintViolationException e) {
+        return ResultVOUtil.error(Objects.requireNonNull(e.getLocalizedMessage()));
+    }
+
+    /**
      * 参数格式错误
+     *
+     * @param e 参数类型不匹配 比如 字符串“a” 不能匹配 Integer类型
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResultVO methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
@@ -72,6 +84,15 @@ public class GlobalExceptionHandler {
 
     /**
      * 参数格式错误
+     *
+     * @param e <p>在页面上传到后台的参数类型与页面的contentType类型不匹配,
+     *          如 post参数要求是一个如下json格式化对象, 而实际参数传入 “abc”
+     *          {
+     *          "name":" sdsdsd",
+     *          "age": 19
+     *          }
+     *          <p/>
+     *          <p>通常出现在rpc调用时，被@RequestBody 修饰的请求参数实体类没有实现序列化接口<p/>
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResultVO httpMessageNotReadable(HttpMessageNotReadableException e) {

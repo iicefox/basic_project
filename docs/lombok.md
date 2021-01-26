@@ -8,3 +8,5 @@ lombok是通过反射利用Java语言在编译时将需要的方法写入到类�
 - @Accessors(chain = true)
 - @NoArgsConstructor
 - @AllArgsConstructor
+
+https://blog.csdn.net/vbirdbest/article/details/79495398

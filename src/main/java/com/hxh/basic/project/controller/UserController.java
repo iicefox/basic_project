@@ -10,9 +10,13 @@ import com.hxh.basic.project.util.ResultVOUtil;
 import com.hxh.basic.project.vo.PageVO;
 import com.hxh.basic.project.vo.ResultVO;
 import com.hxh.basic.project.vo.UserVO;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * 用户前端控制器
@@ -26,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @ResponseResult
+@Validated
 public class UserController {
 
     @Autowired
@@ -67,4 +72,10 @@ public class UserController {
     public void deleteUser(@PathVariable("id") String id) {
         userService.deleteUser(id);
     }
+
+    @GetMapping("/getUser")
+    public void getUser(@Length(min = 11) @NotNull Integer id){
+        System.out.println(id);
+    }
+
 }
