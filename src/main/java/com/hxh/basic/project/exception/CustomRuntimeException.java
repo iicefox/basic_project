@@ -2,6 +2,7 @@ package com.hxh.basic.project.exception;
 
 
 import com.hxh.basic.project.enums.ResultEnum;
+import lombok.Getter;
 
 /**
  * 自定义异常
@@ -12,6 +13,7 @@ import com.hxh.basic.project.enums.ResultEnum;
  * <p>
  * Copyright  Copyright 2021 yomu Inc.
  */
+@Getter
 public class CustomRuntimeException extends RuntimeException {
 
     private static final long serialVersionUID = 8675330359281529640L;
@@ -48,14 +50,6 @@ public class CustomRuntimeException extends RuntimeException {
         super(message);
         this.code = code;
         this.method = method;
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public String getMethod() {
-        return this.method;
     }
 
     @Override
