@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * 固定返回格式
  *
@@ -16,8 +18,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResultVO {
+public class ResultVO implements Serializable {
 
+    private static final long serialVersionUID = 4001043425297022985L;
     /**
      * 错误码
      */

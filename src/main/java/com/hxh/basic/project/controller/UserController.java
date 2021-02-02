@@ -71,9 +71,4 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("/getUser")
-    public void getUser(@Length(min = 11) @NotNull Integer id){
-        System.out.println(id);
-    }
-
 }
