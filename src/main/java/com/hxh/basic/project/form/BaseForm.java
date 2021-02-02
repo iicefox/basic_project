@@ -16,6 +16,6 @@ public interface BaseForm<T> {
      *
      * @return 返回实体类
      */
-    public abstract T buildEntity();
+    T buildEntity();
 
 }

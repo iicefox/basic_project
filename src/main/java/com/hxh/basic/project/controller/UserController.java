@@ -16,7 +16,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * 用户前端控制器
@@ -66,7 +65,6 @@ public class UserController {
      * 删除用户
      *
      * @param id 用户编号
-     * @return 成功或者失败
      */
     @DeleteMapping("/deleteUser/{id}")
     public void deleteUser(@PathVariable("id") String id) {

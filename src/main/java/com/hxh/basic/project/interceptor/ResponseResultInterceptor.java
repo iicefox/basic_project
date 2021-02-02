@@ -22,6 +22,7 @@ import java.lang.reflect.Method;
 @Component
 public class ResponseResultInterceptor implements HandlerInterceptor {
 
+    // 标记名称
     public static final String RESPONSE_RESULT_ANN = "RESPONSE-RESULT-ANN";
 
     @Override
@@ -45,3 +46,4 @@ public class ResponseResultInterceptor implements HandlerInterceptor {
         return true;
     }
 }
+
