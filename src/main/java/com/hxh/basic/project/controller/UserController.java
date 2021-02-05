@@ -5,17 +5,14 @@ import com.hxh.basic.project.annotation.ResponseResult;
 import com.hxh.basic.project.enums.ResultEnum;
 import com.hxh.basic.project.form.user.AddUserForm;
 import com.hxh.basic.project.form.user.ListUserForm;
-import com.hxh.basic.project.service.IUserService;
+import com.hxh.basic.project.service.UserService;
 import com.hxh.basic.project.util.ResultVOUtil;
 import com.hxh.basic.project.vo.PageVO;
 import com.hxh.basic.project.vo.ResultVO;
 import com.hxh.basic.project.vo.UserVO;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * 用户前端控制器
@@ -24,7 +21,7 @@ import javax.validation.constraints.NotNull;
  * @version 1.0
  * @date 2021/1/4 13:21
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 @RestController
 @RequestMapping("/user")
@@ -33,7 +30,7 @@ import javax.validation.constraints.NotNull;
 public class UserController {
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     /**
      * 添加用户

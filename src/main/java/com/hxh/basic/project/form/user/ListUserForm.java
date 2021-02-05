@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
  * @version 1.0
  * @date 2021/1/4 15:02
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 @Getter
 @Setter

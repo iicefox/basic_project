@@ -10,21 +10,22 @@
 ---
 
 ### 基础项目该包含哪些东西。
-- [lombok](docs/lombok.md)
-- [JSR303框架Spring Validation](docs/Spring-Validation.md)
-- [JApiDocs接口文档](docs/JApiDocs.md)
-- [CodeGenerator 代码生成器](docs/CodeGenerator代码生成器.md)
-- [常用的封装](docs/常用的封装.md)
-- [通用的分页对象](docs/通用的分页对象.md)
-- [常用工具类](docs/常用工具类.md)
-- [自定义异常](docs/自定义异常.md)
-- [错误枚举](docs/错误枚举.md)
-- [统一异常拦截](docs/统一异常处理.md)
-- [统一结果封装](docs/统一结果封装.md)
-- [多环境配置文件](docs/多环境配置.md)
-- [Maven多环境配置](docs/多环境配置.md)
-- [日志配置](docs/日志配置.md)
-- [JenkinsFile](docs/JenkinsFile.md)
+- [lombok](./docs/lombok.md)
+- [JSR303框架Spring Validation](./docs/Spring-Validation.md)
+- [JApiDocs接口文档](./docs/JApiDocs.md)
+- [CodeGenerator 代码生成器](./docs/CodeGenerator代码生成器.md)
+- [常用的封装](./docs/常用的封装.md)
+- [通用的分页对象](./docs/通用的分页对象.md)
+- [常用工具类](./docs/常用工具类.md)
+- [自定义异常](./docs/自定义异常.md)
+- [错误枚举](./docs/错误枚举.md)
+- [统一异常拦截](./docs/统一异常处理.md)
+- [统一结果封装](./docs/统一结果封装.md)
+- [Junit5](./docs/Junit5.md)
+- [多环境配置文件](./docs/多环境配置.md)
+- [Maven多环境配置](./docs/多环境配置.md)
+- [日志配置](./docs/日志配置.md)
+- [JenkinsFile](./docs/JenkinsFile.md)
 
 ---
 

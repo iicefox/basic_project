@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @version 1.0
  * @date 2021/1/4 13:21
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 @Configuration
 public class InterceptorConfiguraction implements WebMvcConfigurer {

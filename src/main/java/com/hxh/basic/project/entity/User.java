@@ -15,7 +15,7 @@ import java.util.Date;
  * @version 1.0
  * @date 2020/12/4 13:21
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 
 @Setter

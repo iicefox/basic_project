@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0
  * @date 2021/1/4 11:02
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 @RestControllerAdvice
 public class ResponseResultHandler implements ResponseBodyAdvice<Object> {

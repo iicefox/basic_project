@@ -9,7 +9,7 @@ import com.hxh.basic.project.exception.CustomRuntimeException;
 import com.hxh.basic.project.form.user.AddUserForm;
 import com.hxh.basic.project.form.user.ListUserForm;
 import com.hxh.basic.project.mapper.UserMapper;
-import com.hxh.basic.project.service.IUserService;
+import com.hxh.basic.project.service.UserService;
 import com.hxh.basic.project.util.MethodUtil;
 import com.hxh.basic.project.vo.PageVO;
 import com.hxh.basic.project.vo.UserVO;
@@ -24,10 +24,10 @@ import org.springframework.stereotype.Service;
  * @version 1.0
  * @date 2021/1/4 15:02
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -54,7 +54,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public PageVO<UserVO> listUser(ListUserForm listUserForm) {
         PageVO<UserVO> pageVo = new PageVO<UserVO>().setCurrentAndSize(listUserForm);
         pageVo.setTotal(countUser(listUserForm.getStatus()));
-        pageVo.setRecords(CollUtil.emptyIfNull(userMapper.listUser(listUserForm.calcCurrent())));
+        pageVo.setRecords(CollUtil.<UserVO>emptyIfNull(userMapper.listUser(listUserForm.calcCurrent())));
         return pageVo;
     }
 

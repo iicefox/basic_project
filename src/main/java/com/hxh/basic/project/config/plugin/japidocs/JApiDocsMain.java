@@ -10,7 +10,7 @@ import io.github.yedaxia.apidocs.DocsConfig;
  * @version 1.0
  * @date 2020/12/15 13:21
  * <p>
- * Copyright  Copyright 2021 yomu Inc.
+ * Copyright 2021 yomu Inc.
  */
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 public class JApiDocsMain {
