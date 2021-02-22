@@ -28,7 +28,7 @@ public class ResponseResultInterceptor implements HandlerInterceptor {
     public static final String RESPONSE_RESULT_ANN = "RESPONSE-RESULT-ANN";
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         if (!(handler instanceof HandlerMethod)) {
             // 不是请求的方法
             return false;

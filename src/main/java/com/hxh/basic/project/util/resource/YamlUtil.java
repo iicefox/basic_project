@@ -36,7 +36,7 @@ public class YamlUtil {
      * .findAndRegisterModules(); --> 读yaml文件时处理日期
      * .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); --> 禁用特性: 缺省文件以三个横杠开头
      */
-    private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)).findAndRegisterModules().disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    private static final ObjectMapper mapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)).findAndRegisterModules().disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
     private YamlUtil() {
     }

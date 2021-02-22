@@ -116,9 +116,9 @@ public enum ResultEnum {
     OK(2000, "ok"),
     ;
 
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
     /**
      * 通过状态码获取枚举对象
